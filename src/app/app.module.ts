@@ -13,7 +13,6 @@ import { PasswordPage } from '../pages/password/password';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { UserServiceProvider } from '../providers/user-service/user-service';
 
 @NgModule({
   declarations: [
@@ -44,8 +43,7 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserServiceProvider
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}
