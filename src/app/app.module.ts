@@ -11,6 +11,9 @@ import { LoginPage } from "../pages/login/login";
 import { RegisterPage } from '../pages/register/register';
 import { PasswordPage } from '../pages/password/password';
 
+import { UserServiceProvider } from "../providers/user-service/user-service";
+import { IonicStorageModule } from "@ionic/storage";
+import { HttpModule } from "@angular/http";
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -23,7 +26,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     LoginPage,
     RegisterPage,
-    PasswordPage
+    PasswordPage,
+    IonicStorageModule,
+    HttpModule
   ],
   imports: [
     BrowserModule,
@@ -38,12 +43,15 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     LoginPage,
     RegisterPage,
-    PasswordPage
+    PasswordPage,
+    IonicStorageModule,
+    HttpModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    UserServiceProvider
   ]
 })
 export class AppModule {}

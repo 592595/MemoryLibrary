@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import { Storage} from "@ionic/storage";
+import { Headers, Http } from '@angular/http';
+import { Storage } from "@ionic/storage";
 import 'rxjs/add/operator/map';
 
 /*
@@ -14,13 +14,12 @@ export class UserServiceProvider {
 
   public _user: any;
 
-  constructor(public http: Http, public storage:Storage) {
+  constructor(public http: Http, public storage:Storage, public headers:Headers) {
     console.log('Hello UserServiceProvider Provider');
   }
   setUser(obj) {
     this._user=obj;
     this.storage.set('user', this._user);
-
   }
 
 }

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { Headers, Http } from "@angular/http";
-import {visitValue} from "@angular/compiler/src/util";
 
 /**
  * Generated class for the LoginPage page.
@@ -20,10 +19,9 @@ export class LoginPage {
   userEmail:'';
   userPwd:'';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public http:Http, public headers:Headers) {
 
   }
-
   loginAlert(mTitle,mSubTitle){
     let alert = this.alertCtrl.create({
       title: mTitle,
@@ -67,5 +65,4 @@ export class LoginPage {
       res.json();
     });
   }
-
 }
