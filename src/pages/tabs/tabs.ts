@@ -8,7 +8,7 @@ import { HomePage } from '../home/home';
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
-  public tabRoots: object[];
+  tabRoots: Object[];
 
   constructor() {
     this.tabRoots=[

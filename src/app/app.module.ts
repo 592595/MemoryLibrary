@@ -8,6 +8,8 @@ import { SettingPage } from '../pages/setting/setting';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from "../pages/login/login";
+import { RegisterPage } from '../pages/register/register';
+import { PasswordPage } from '../pages/password/password';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -20,7 +22,9 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
     ExplorePage,
     SettingPage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    RegisterPage,
+    PasswordPage
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,9 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
     ExplorePage,
     SettingPage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    RegisterPage,
+    PasswordPage
   ],
   providers: [
     StatusBar,

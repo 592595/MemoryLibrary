@@ -6,35 +6,39 @@
 <ion-header no-border>
 
   <ion-navbar color="mblue">
-    <ion-title>登陆</ion-title>
-    <ion-buttons end (click)="regist();">
-      <ion-title>注册</ion-title>
-    </ion-buttons>
+    <ion-title>注册</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content padding >
   <img class="dv_logo" src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />
 
   <ion-list>
 
     <ion-item>
-      <ion-label floating>账号：</ion-label>
-      <ion-input type="text" [(ngModel)]="name"></ion-input>
+      <ion-label floating>昵称：</ion-label>
+      <ion-input type="text"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label floating>密码：</ion-label>
-      <ion-input type="password" [(ngModel)]="pass"></ion-input>
+      <ion-label floating>Email：</ion-label>
+      <ion-input type="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>验证码：</ion-label>
+      <ion-input type="text"></ion-input>
     </ion-item>
 
   </ion-list>
 
   <div padding>
-    <button ion-button color="light" block>登录</button>
+    <button ion-button color="light" block>获取验证码</button>
+  </div>
+  <div padding>
+    <button ion-button color="light" block>下一步</button>
   </div>
 
 </ion-content>
