@@ -1,19 +1,32 @@
 import { Component } from '@angular/core';
 
-import { AboutPage } from '../about/about';
-import { ContactPage } from '../contact/contact';
+import { SettingPage } from '../setting/setting';
+import { ExplorePage } from '../explore/explore';
 import { HomePage } from '../home/home';
 
 @Component({
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
-
-  tab1Root = HomePage;
-  tab2Root = AboutPage;
-  tab3Root = ContactPage;
+  public tabRoots: object[];
 
   constructor() {
-
+    this.tabRoots=[
+      {
+        root: HomePage,
+        tabTitle: 'Home',
+        tabIcon: 'home'
+      },
+      {
+        root: ExplorePage,
+        tabTitle: 'Explore',
+        tabIcon: 'notifications'
+      },
+      {
+        root: SettingPage,
+        tabTitle: 'Setting',
+        tabIcon: 'document'
+      }
+    ];
   }
 }
