@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-import { Headers, Http } from "@angular/http";
+import { Http } from "@angular/http";
 
 /**
  * Generated class for the LoginPage page.
@@ -19,7 +19,7 @@ export class LoginPage {
   userEmail:'';
   userPwd:'';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public http:Http, public headers:Headers) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public http:Http) {
 
   }
   loginAlert(mTitle,mSubTitle){
@@ -38,11 +38,9 @@ export class LoginPage {
     }
     else{
       let url = '';
-      var headers = new Headers();
+      let headers = new Headers();
       headers.append('Content-Type', 'application/x-www-form-unlocked');
-      this.http.post(url, "username=" + this.userEmail + "&password=" + this.userPwd, {
-        headers:headers
-      }).subscribe((res)=>{
+      this.http.post(url, "username=" + this.userEmail + "&password=" + this.userPwd).subscribe((res)=>{
         if(res.json().status==true){
           this.navCtrl.pop();
         }
@@ -57,11 +55,9 @@ export class LoginPage {
 
   getVcode(){
     let url = '';
-    var headers = new Headers();
+    let headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-unlocked');
-    this.http.post(url, "mailTo="+ this.userEmail, {
-      headers:headers
-    }).subscribe((res)=>{
+    this.http.post(url, "mailTo="+ this.userEmail).subscribe((res)=>{
       res.json();
     });
   }

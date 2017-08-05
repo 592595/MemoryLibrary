@@ -27,10 +27,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LoginPage,
     RegisterPage,
     PasswordPage,
-    IonicStorageModule,
-    HttpModule
   ],
   imports: [
+    IonicStorageModule.forRoot(),
+    HttpModule,
     BrowserModule,
     IonicModule.forRoot(MyApp)
   ],
@@ -44,8 +44,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LoginPage,
     RegisterPage,
     PasswordPage,
-    IonicStorageModule,
-    HttpModule
   ],
   providers: [
     StatusBar,
