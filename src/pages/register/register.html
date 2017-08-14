@@ -18,27 +18,20 @@
   <ion-list>
 
     <ion-item>
-      <ion-label floating>昵称：</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
-
-    <ion-item>
       <ion-label floating>Email：</ion-label>
-      <ion-input type="email"></ion-input>
+      <ion-input [(ngModel)]="userMail"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>验证码：</ion-label>
-      <ion-input type="text"></ion-input>
+      <button ion-button outline item-end (click)="getVcode()" id="getVcode">获取验证码</button>
+      <ion-input [(ngModel)]="userVcode"></ion-input>
     </ion-item>
 
   </ion-list>
 
   <div padding>
-    <button ion-button color="light" block>获取验证码</button>
-  </div>
-  <div padding>
-    <button ion-button color="light" block>下一步</button>
+    <button ion-button color="light" block (click)="nextStep()" [disabled]="">下一步</button>
   </div>
 
 </ion-content>

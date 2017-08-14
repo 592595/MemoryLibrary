@@ -7,6 +7,11 @@
 
   <ion-navbar color="mblue">
     <ion-title>登录</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="goRegister()">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -25,7 +30,7 @@
 
     <ion-item>
       <ion-label floating>密码：</ion-label>
-      <ion-input [(ngModel)]="userPwd"></ion-input>
+      <ion-input [(ngModel)]="userPwd" type="password"></ion-input>
     </ion-item>
 
   </ion-list>
