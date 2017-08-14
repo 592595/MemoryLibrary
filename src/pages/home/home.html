@@ -4,14 +4,82 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content class="ion-content">
+  <ion-slides pager class="ion-slides">
+    <ion-slide *ngFor="let slide of slides" class="ion-slide">
+      <img [src]="slide.image" class="slide-image"/>
+      <p class="slide-description" [innerHTML]="slide.description"></p>
+      <p class="slide-text" [innerHTML]="slide.text"></p>
+      <p class="slide-title"[innerHTML]="slide.title"></p><br>
+      <p class="slide-subTitle"[innerHTML]="slide.subTitle"></p>
+    </ion-slide>
+  </ion-slides>
+
+
+  <h6 style="margin: 5% 5% 2% 5%;"><b>专题分类</b></h6>
+  <ion-card class="ion-card-classify" no-margin >
+      <ion-card-content no-margin no-border>
+        <img class="ion-card-classify-image" src="assets/img/1.jpg">
+
+
+        <img class="ion-card-classify-image" src="assets/img/2.jpg">
+
+
+        <img class="ion-card-classify-image" src="assets/img/3.jpg">
+
+      </ion-card-content>
+  </ion-card>
+
+  <h6 style="margin: 2% 5%;"><b>今日推荐</b></h6>
+  <ion-card class="ion-card-recommend">
+    <ion-card-content no-margin no-padding class="ion-card-recommend-content">
+      <a href="#">
+        <img src="assets/img/1.2.jpg" class="ion-card-recommend-content-image">
+        <p class="ion-card-recommend-content-describe">小仓鼠的记忆
+          <button ion-button color="dark" clear small icon-left>
+            <ion-icon name='eye'></ion-icon>
+            1000+
+          </button>
+        </p>
+      </a>
+    </ion-card-content>
+
+    <ion-card-content no-margin no-padding class="ion-card-recommend-content">
+      <a href="#">
+        <img src="assets/img/1.2.jpg" class="ion-card-recommend-content-image">
+        <p class="ion-card-recommend-content-describe">小仓鼠的记忆
+          <button ion-button color="dark" clear small icon-left>
+            <ion-icon name='eye'></ion-icon>
+            1000+
+          </button>
+        </p>
+      </a>
+    </ion-card-content>
+    <ion-card-content no-margin no-padding class="ion-card-recommend-content">
+      <a href="#">
+        <img src="assets/img/1.1.jpg" class="ion-card-recommend-content-image">
+        <p class="ion-card-recommend-content-describe">小仓鼠的记忆
+          <button ion-button color="dark" clear small icon-left>
+            <ion-icon name='eye'></ion-icon>
+            1000+
+          </button>
+        </p>
+      </a>
+    </ion-card-content>
+    <ion-card-content no-margin no-padding class="ion-card-recommend-content">
+      <a href="#">
+        <img src="assets/img/1.1.jpg" class="ion-card-recommend-content-image">
+        <p class="ion-card-recommend-content-describe">小仓鼠的记忆
+          <button ion-button color="dark" clear small icon-left>
+            <ion-icon name='eye'></ion-icon>
+            1000+
+          </button>
+        </p>
+      </a>
+    </ion-card-content>
+
+
+
+  </ion-card>
+
 </ion-content>
