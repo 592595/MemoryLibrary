@@ -10,7 +10,10 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from "../pages/login/login";
 import { RegisterPage } from '../pages/register/register';
 import { PasswordPage } from '../pages/password/password';
-import { SlidesPage} from "../pages/slides/slides";
+import { SlidesPage } from "../pages/slides/slides";
+import { PublishPage } from "../pages/publish/publish";
+import { ForgetPage } from "../pages/forget/forget";
+import { MuseumPage } from "../pages/museum/museum";
 
 import { UserServiceProvider } from "../providers/user-service/user-service";
 import { IonicStorageModule } from "@ionic/storage";
@@ -28,7 +31,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LoginPage,
     RegisterPage,
     PasswordPage,
-    SlidesPage
+    SlidesPage,
+    PublishPage,
+    ForgetPage,
+    MuseumPage
   ],
   imports: [
     IonicStorageModule.forRoot(),
@@ -46,7 +52,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LoginPage,
     RegisterPage,
     PasswordPage,
-    SlidesPage
+    SlidesPage,
+    PublishPage,
+    ForgetPage,
+    MuseumPage
   ],
   providers: [
     StatusBar,

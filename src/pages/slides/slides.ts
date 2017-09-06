@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-
+import { TabsPage } from "../tabs/tabs";
+import { NavController} from 'ionic-angular';
 
 @Component({
   templateUrl: 'slides.html'
@@ -22,4 +23,13 @@ export class SlidesPage {
       image: "assets/img/ica-slidebox-img-3.png",
     }
   ];
+  constructor(public navCtrl: NavController) {
+
+  }
+  testNewPage(){
+    console.log('点我了');
+    this.navCtrl.push(TabsPage,{
+      item1:'ios-newPage'
+    });
+  }
 }

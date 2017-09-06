@@ -1,0 +1,57 @@
+<!--
+  Generated template for the PublishPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header no-border [class.idark]="isIdark">
+  <ion-toolbar>
+    <ion-buttons style="float: left">
+      <button ion-button icon-only color="dark">
+        <ion-icon name="arrow-dropleft"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>发布</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="dark">
+        <ion-icon name="checkmark-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <section class="work_top">
+    <section class="work_banner" [style.background]="'url('+ banner +')'">banner</section>
+    <input class="dv_work_title" [(ngModel)]="title" type="text" placeholder="为您的专属记忆起个名吧" />
+  </section>
+  <ion-list-header no-lines="">
+    说说：
+  </ion-list-header>
+  <ion-textarea [(ngModel)]="des" placeholder="输入这份回忆背后的故事"></ion-textarea>
+
+  <button class="dv_button" ion-button round outline color="dark" >添加图片</button>
+  <section class="dv_food_list">
+    <ion-row>
+      <ion-col>
+        <div></div>
+      </ion-col>
+      <ion-col>
+        <div></div>
+      </ion-col>
+    </ion-row>
+  </section>
+  <br/>
+
+  <ion-list no-lines="">
+    <ion-item>
+      <ion-label>私有</ion-label>
+      <ion-checkbox [(ngModel)]="published" color="energized" checked="true" color="dark"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+  <ion-textarea [(ngModel)]="display" placeholder="展位"></ion-textarea>
+  <br/>
+
+</ion-content>

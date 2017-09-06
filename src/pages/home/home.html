@@ -15,71 +15,137 @@
     </ion-slide>
   </ion-slides>
 
-
   <h6 style="margin: 5% 5% 2% 5%;"><b>专题分类</b></h6>
   <ion-card class="ion-card-classify" no-margin >
       <ion-card-content no-margin no-border>
         <img class="ion-card-classify-image" src="assets/img/1.jpg">
 
-
         <img class="ion-card-classify-image" src="assets/img/2.jpg">
-
 
         <img class="ion-card-classify-image" src="assets/img/3.jpg">
 
       </ion-card-content>
   </ion-card>
 
-  <h6 style="margin: 2% 5%;"><b>今日推荐</b></h6>
-  <ion-card class="ion-card-recommend">
-    <ion-card-content no-margin no-padding class="ion-card-recommend-content">
-      <a href="#">
-        <img src="assets/img/1.2.jpg" class="ion-card-recommend-content-image">
-        <p class="ion-card-recommend-content-describe">小仓鼠的记忆
-          <button ion-button color="dark" clear small icon-left>
-            <ion-icon name='eye'></ion-icon>
-            1000+
-          </button>
-        </p>
-      </a>
-    </ion-card-content>
 
-    <ion-card-content no-margin no-padding class="ion-card-recommend-content">
-      <a href="#">
-        <img src="assets/img/1.2.jpg" class="ion-card-recommend-content-image">
-        <p class="ion-card-recommend-content-describe">小仓鼠的记忆
-          <button ion-button color="dark" clear small icon-left>
-            <ion-icon name='eye'></ion-icon>
-            1000+
-          </button>
-        </p>
-      </a>
-    </ion-card-content>
-    <ion-card-content no-margin no-padding class="ion-card-recommend-content">
-      <a href="#">
-        <img src="assets/img/1.1.jpg" class="ion-card-recommend-content-image">
-        <p class="ion-card-recommend-content-describe">小仓鼠的记忆
-          <button ion-button color="dark" clear small icon-left>
-            <ion-icon name='eye'></ion-icon>
-            1000+
-          </button>
-        </p>
-      </a>
-    </ion-card-content>
-    <ion-card-content no-margin no-padding class="ion-card-recommend-content">
-      <a href="#">
-        <img src="assets/img/1.1.jpg" class="ion-card-recommend-content-image">
-        <p class="ion-card-recommend-content-describe">小仓鼠的记忆
-          <button ion-button color="dark" clear small icon-left>
-            <ion-icon name='eye'></ion-icon>
-            1000+
-          </button>
-        </p>
-      </a>
-    </ion-card-content>
+  <ion-list>
+    <h6 style="margin: 2% 5%;"><b>今日推荐</b></h6>
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="assets/img/1.1.jpg">
+      </ion-thumbnail>
+      <h2>My Neighbor Totoro</h2>
+      <p>Hayao Miyazaki • 1988</p>
+      <button ion-button clear item-end>View</button>
+    </ion-item>
 
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="assets/img/1.2.jpg">
+      </ion-thumbnail>
+      <h2>Raiders of the Lost Ark</h2>
+      <p>Steven Spielberg • 1981</p>
+      <button ion-button clear item-end>View</button>
+    </ion-item>
 
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="assets/img/1.1.jpg">
+      </ion-thumbnail>
+      <h2>My Neighbor Totoro</h2>
+      <p>Hayao Miyazaki • 1988</p>
+      <button ion-button clear item-end>View</button>
+    </ion-item>
 
-  </ion-card>
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="assets/img/1.2.jpg">
+      </ion-thumbnail>
+      <h2>Raiders of the Lost Ark</h2>
+      <p>Steven Spielberg • 1981</p>
+      <button ion-button clear item-end>View</button>
+    </ion-item>
+  </ion-list>
 
+  <!--发布按钮-->
+ <ion-fab right bottom edgs>
+      <button ion-fab color="light"><ion-icon name="arrow-dropup"></ion-icon></button>
+      <ion-fab-list side="top">
+        <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
+        <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+        <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
+        <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
+      </ion-fab-list>
+    </ion-fab>
 </ion-content>
+
+<!--
+<ion-content>
+  <ion-list>
+
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="assets/img/thumbnail-totoro.png">
+      </ion-thumbnail>
+      <h2>My Neighbor Totoro</h2>
+      <p>Hayao Miyazaki • 1988</p>
+      <button ion-button clear item-end>View</button>
+    </ion-item>
+
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="assets/img/thumbnail-rotla.png">
+      </ion-thumbnail>
+      <h2>Raiders of the Lost Ark</h2>
+      <p>Steven Spielberg • 1981</p>
+      <button ion-button clear item-end>View</button>
+    </ion-item>
+
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="assets/img/thumbnail-ghostbusters.png">
+      </ion-thumbnail>
+      <h2>Ghostbusters</h2>
+      <p>Ivan Reitman • 1984</p>
+      <button ion-button clear item-end>View</button>
+    </ion-item>
+
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="assets/img/thumbnail-batman.png">
+      </ion-thumbnail>
+      <h2>Batman</h2>
+      <p>Tim Burton • 1988</p>
+      <button ion-button clear item-end>View</button>
+    </ion-item>
+
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="assets/img/thumbnail-bttf.png">
+      </ion-thumbnail>
+      <h2>Back to the Future</h2>
+      <p>Robert Zemeckis • 1985</p>
+      <button ion-button clear item-end>View</button>
+    </ion-item>
+
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="assets/img/thumbnail-esb.png">
+      </ion-thumbnail>
+      <h2>The Empire Strikes Back</h2>
+      <p>Irvin Kershner • 1980</p>
+      <button ion-button clear item-end>View</button>
+    </ion-item>
+
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="assets/img/thumbnail-terminator.png">
+      </ion-thumbnail>
+      <h2>The Terminator</h2>
+      <p>James Cameron • 1984</p>
+      <button ion-button clear item-end>View</button>
+    </ion-item>
+
+  </ion-list>
+</ion-content>
+-->

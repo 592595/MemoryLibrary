@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -42,5 +41,6 @@ export class HomePage {
       description: "<b>那些永不凋零的记忆</b>",
     }
   ];
+
 
 }
