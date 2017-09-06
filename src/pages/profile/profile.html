@@ -6,13 +6,67 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>profile</ion-title>
-  </ion-navbar>
+  <ion-toolbar>
+    <ion-buttons style="float: left">
+      <button ion-button icon-only color="dark">
+        <ion-icon name="arrow-dropleft"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>设置</ion-title>
+
+  </ion-toolbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <ion-card margin-bottom="15%">
+    <ion-list no-lines >
+      <ion-item>
+        <ion-icon name='rose' item-start></ion-icon>
+        <ion-toggle checked="false" color="dark"></ion-toggle>
+        <ion-label>
+          推送设置
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <ion-card margin-bottom="15%">
+    <ion-list no-lines>
+
+      <button ion-item>
+        <ion-icon name='create' item-start></ion-icon>
+        意见反馈
+      </button>
+
+      <button ion-item>
+        <ion-icon name='bulb' item-start></ion-icon>
+        清楚缓存
+      </button>
+
+      <button ion-item>
+        <ion-icon name='star' item-start></ion-icon>
+        检查更新
+      </button>
+
+      <button ion-item>
+        <ion-icon name='pin' item-start></ion-icon>
+        推荐一下
+      </button>
+
+      <button ion-item>
+        <ion-icon name='bulb' item-start></ion-icon>
+        关于我们
+      </button>
+
+    </ion-list>
+  </ion-card>
+
+  <ion-card >
+    <button ion-button block color="light" no-margin="" >退出登录</button>
+  </ion-card>
+
 
 </ion-content>

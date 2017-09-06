@@ -22,7 +22,7 @@ export class LoginPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public http:Http,public toastCtrl: ToastController) {
 
-  }
+}
   goRegister(){
     this.navCtrl.push(RegisterPage);
   }

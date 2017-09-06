@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
-import { Http } from "@angular/http";
-
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
  * Generated class for the ProfilePage page.
@@ -17,24 +15,7 @@ import { Http } from "@angular/http";
 })
 export class ProfilePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl:ToastController ) {
-  }
-
-  logOut(){
-    let url = '/api/users/logout';
-    this.http.get(url).subscribe((res)=>{
-      if(res.json().status){
-        this.navCtrl.pop();
-        //本地数据操作
-      }
-      else{
-        let toast = this.toastCtrl.create({
-          message: "出现了一些问题，再试一次吧",
-          duration: 2000
-        });
-        toast.present();
-      }
-    })
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {

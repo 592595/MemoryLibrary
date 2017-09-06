@@ -12,13 +12,13 @@
 
 </ion-header>
 
+
 <ion-content padding>
+
   <img class="dv_logo" src="https://avatars2.githubusercontent.com/u/11835988?v=3&u=2a181779eb2164666606366a1df31f9c17cf7a20&s=100" />
+
   <ion-list>
-    <ion-item>
-      <ion-label floating >邮箱：</ion-label>
-      <ion-input [(ngModel)]="userMail" type="email" ></ion-input>
-    </ion-item>
+
     <ion-item>
       <ion-label floating>新密码：</ion-label>
         <ion-input [(ngModel)]="Pwd" type="password"></ion-input>
@@ -38,8 +38,9 @@
   </ion-list>
 
   <div padding>
-    <button ion-button color="light" block (click)="submitReset()" >找回密码</button>
+    <button ion-button color="light" block (click)="submitReset()">提交</button>
   </div>
+
 
 </ion-content>
 
