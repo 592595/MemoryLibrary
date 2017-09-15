@@ -1,0 +1,19 @@
+page-publish {
+  ion-title{
+    text-align: center;
+  }
+  .item-height{
+    height: 3rem;
+  }
+  .imgs {
+    width: 5rem;
+    height: 5rem;
+    background-size: cover !important;
+    float: left;
+    margin-right: 10px;
+  }
+  textarea {
+    height: 8rem !important;
+  }
+
+}

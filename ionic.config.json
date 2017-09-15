@@ -1,0 +1,11 @@
+{
+  "name": "MemoryLibrary",
+  "app_id": "",
+  "type": "ionic-angular",
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "http://183.175.12.175:3000"
+    }
+  ]
+}

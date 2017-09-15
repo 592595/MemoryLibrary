@@ -1,0 +1,35 @@
+<!--
+  Generated template for the ExplorePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button  ion-button color="dark" style="float:left" clear>
+      当前城市
+      <ion-icon name="arrow-dropdown"></ion-icon>
+    </button>
+
+    <button ion-button color="dark" style="float:right" clear (click)="getNear()">
+      <ion-icon name="pin"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="card-background-page">
+
+  <ion-card>
+    <img src="assets/img/card-saopaolo.png"/>
+    <div class="card-title">内蒙古私人博物馆</div>
+    <div class="card-subtitle">地址：内蒙古大学</div>
+  </ion-card>
+
+  <ion-card>
+    <img src="assets/img/card-madison.png"/>
+    <div class="card-title">内蒙古私人博物馆</div>
+    <div class="card-subtitle">地址：内蒙古大学</div>
+  </ion-card>
+
+</ion-content>
