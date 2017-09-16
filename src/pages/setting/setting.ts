@@ -4,7 +4,7 @@ import { Storage } from "@ionic/storage";
 import { UserServiceProvider } from "../../providers/user-service/user-service";
 import { LoginPage } from "../login/login";
 import { SettingfilePage } from "../settingfile/settingfile";
-
+import { ProfilePage } from "../profile/profile";
 
 /**
  * Generated class for the SettingPage page.
@@ -49,5 +49,8 @@ export class SettingPage {
   }
   pushSettingFile(){
     this.checkLogin(SettingfilePage);
+  }
+  pushProfile(){
+    this.checkLogin(ProfilePage);
   }
 }

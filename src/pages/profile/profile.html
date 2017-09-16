@@ -5,17 +5,9 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-toolbar>
-    <ion-buttons style="float: left">
-      <button ion-button icon-only color="dark">
-        <ion-icon name="arrow-dropleft"></ion-icon>
-      </button>
-    </ion-buttons>
+  <ion-navbar>
     <ion-title>设置</ion-title>
-
-  </ion-toolbar>
-
+  </ion-navbar>
 </ion-header>
 
 
@@ -64,8 +56,8 @@
     </ion-list>
   </ion-card>
 
-  <ion-card >
-    <button ion-button block color="light" no-margin="" >退出登录</button>
+  <ion-card>
+    <button ion-button block color="light" no-margin="" (click)="logOut()">退出登录</button>
   </ion-card>
 
 

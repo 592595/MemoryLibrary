@@ -23,8 +23,11 @@ import { HttpModule } from "@angular/http";
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { PublishServiceProvider } from '../providers/publish-service/publish-service';
-import {Camera} from "@ionic-native/camera";
-import {FileTransfer, FileTransferObject} from "@ionic-native/file-transfer";
+
+import { File } from '@ionic-native/file';
+import { Transfer } from '@ionic-native/transfer';
+import { FilePath } from '@ionic-native/file-path';
+import { Camera } from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
@@ -71,12 +74,13 @@ import {FileTransfer, FileTransferObject} from "@ionic-native/file-transfer";
   providers: [
     StatusBar,
     SplashScreen,
+    File,
+    Transfer,
+    Camera,
+    FilePath,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserServiceProvider,
-    PublishServiceProvider,
-    Camera,
-    FileTransfer,
-    FileTransferObject
+    PublishServiceProvider
   ]
 })
 export class AppModule {}

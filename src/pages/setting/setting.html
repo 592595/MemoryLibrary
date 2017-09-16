@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>设置</ion-title>
+    <ion-title>我的</ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="pushSettingFile()">
         <ion-icon color="dark" name='contact' ></ion-icon>
@@ -14,11 +14,16 @@
     <ion-card-content>
       <img class="dv_logo" [src]="user.avatar"/>
       <p style="text-align: center; margin-top: 10px">{{user.nickname}}</p>
-      <ion-item [hidden]="!UserServiceProvider._user._id">
-        <button ion-button color="dark" clear small item-start><ion-icon name='eye'>&nbsp;</ion-icon>{{ user.location.city }}</button>
-        <button ion-button color="dark" clear small item-start><ion-icon name='heart'>&nbsp;</ion-icon>{{ user.location.province }}</button>
-      </ion-item>
     </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-list no-lines margin="auto">
+      <button ion-item (click)="pushProfile()">
+        <ion-icon name='settings' item-start></ion-icon>
+        设置
+      </button>
+    </ion-list>
   </ion-card>
 
   <ion-card>
@@ -48,6 +53,8 @@
         <ion-icon name='pin' item-start></ion-icon>
         我的附近
       </button>
+
+
 
     </ion-list>
   </ion-card>

@@ -6,22 +6,33 @@
 -->
 <ion-header>
   <ion-navbar>
-      <ion-title>编辑资料</ion-title>
+      <ion-title>头像修改</ion-title>
       <ion-buttons end>
-        <button ion-button icon-only color="dark" (click)="saveProfile()">
+        <button ion-button icon-only color="dark">
           保存
         </button>
       </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
-  <ion-card >
-    <ion-item>
-      vruivhrwiev
-    </ion-item>
-  </ion-card>
+  <img src="{{pathForImage(lastImage)}}" style="width: 100%" [hidden]="lastImage === null">
+  <button>
+    <img [src]="this.UserServiceProvider._user.avatar" [hidden]="lastImage !== null" (click)="presentActionSheet()">
+  </button>
 
-
+  <h3 [hidden]="lastImage !== null">Please Select Image!</h3>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-buttons>
+      <button ion-button icon-left (click)="presentActionSheet()">
+        <ion-icon name="camera"></ion-icon>Select Image
+      </button>
+      <button ion-button icon-left (click)="uploadImage()" [disabled]="lastImage === null">
+        <ion-icon name="cloud-upload"></ion-icon>Upload
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

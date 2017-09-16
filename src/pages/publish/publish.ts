@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { ActionSheetController, AlertController, IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { Http,Headers } from "@angular/http";
 import { PublishServiceProvider } from "../../providers/publish-service/publish-service";
-import { Camera } from "@ionic-native/camera";
-import { Transfer, TransferObject } from "@ionic-native/transfer";
 
 /**
  * Generated class for the PublishPage page.
@@ -24,7 +22,7 @@ export class PublishPage {
   display:'';
   mid:'';
   ishide:boolean;
-  fileTransfer: TransferObject;
+
   postimg = [];
   items = [];
 
@@ -33,104 +31,14 @@ export class PublishPage {
               public http: Http,
               public toastCtrl: ToastController,
               public alertCtrl: AlertController,
-              private camera: Camera,
-              public transfer: Transfer,
               public actionSheetCtrl: ActionSheetController,
               public PublishServiceProvider:PublishServiceProvider ) {
-    this.fileTransfer = this.transfer.create();
+
     this.published = true;
     this.ishide = false;
   }
 
-  presentActionSheet(){
-    let actionSheet = this.actionSheetCtrl.create({
-      title: '选择照片',
-      buttons: [
-        {
-          text: '相册',
-          icon: 'images',
-          handler: ()=>{
-            this.selectImgType(0);
-          }
-        },
-        {
-          text: '相机',
-          icon: 'camera',
-          handler: ()=>{
-            this.selectImgType(1);
-          }
-        },
-        {
-          text: '取消',
-          role: 'cancel',
-          handler: ()=>{
-            console.log('cancel clicked');
-          }
-        }
-      ]
-    });
-    actionSheet.present();
-  }
 
-  up(path) {
-    this.fileTransfer.upload(path, "http://www.devonhello.com/chihu2/upload", {})
-      .then((data) => {
-        // success
-        //alert(JSON.stringify(data));
-        var idata = JSON.parse(data["response"]);
-        this.postimg.push(idata);
-        this.items.push(idata['src']);
-      }, (err) => {
-        // error
-        alert('err');
-      })
-  }
-
-
-  //长按删除事件
-  pressEvent(idx) {
-    //alert(idx);
-    this.showConfirm(idx);
-  }
-  //删除提示
-  showConfirm(idx) {
-    let confirm = this.alertCtrl.create({
-      title: '提示',
-      message: '是否删除此照片?',
-      buttons: [
-        {
-          text: '在想想',
-          handler: () => {
-            console.log('Disagree clicked');
-          }
-        },
-        {
-          text: '确定',
-          handler: () => {
-            this.items.splice(idx, 1);
-            this.postimg.splice(idx, 1);
-            if (this.items.length < 4) {
-              this.ishide = false;
-            }
-          }
-        }
-      ]
-    });
-    confirm.present();
-  }
-
-  //成品照片
-  selectImgType(type){
-    var _that = this;
-    this.camera.getPicture({
-      quality: 100,
-      allowEdit: true,
-      sourceType: type,
-      correctOrientation: true
-    }).then((imageData)=>{
-      _that.up(imageData);
-    })
-  }
   setPrivate(){
     this.published = !this.published;
   }
