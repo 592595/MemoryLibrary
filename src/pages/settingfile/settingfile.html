@@ -23,7 +23,6 @@
       <img id="profile-image" [src]="this.userInfo.avatar" (click)="presentActionSheet()">
       <p id="profile-name">{{this.userInfo.email}}</p>
     </div>
-    <img src="{{pathForImage(lastImage)}}" style="width: 100%" [hidden]="lastImage === null">
   </div>
   <ion-list>
     <ion-item>
@@ -48,6 +47,7 @@
   </ion-list>
 </ion-content>
 
+<!--
 <ion-footer>
   <ion-toolbar color="primary">
     <ion-buttons>
@@ -60,3 +60,4 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-footer>
+-->
