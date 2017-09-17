@@ -6,22 +6,46 @@
 -->
 <ion-header>
   <ion-navbar>
-      <ion-title>头像修改</ion-title>
+      <ion-title>我的资料</ion-title>
       <ion-buttons end>
-        <button ion-button icon-only color="dark">
+        <button ion-button icon-only color="dark" (click)="saveProfile()">
           保存
         </button>
       </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <img src="{{pathForImage(lastImage)}}" style="width: 100%" [hidden]="lastImage === null">
-  <button>
-    <img [src]="this.UserServiceProvider._user.avatar" [hidden]="lastImage !== null" (click)="presentActionSheet()">
-  </button>
-
-  <h3 [hidden]="lastImage !== null">Please Select Image!</h3>
+<ion-content>
+  <div id="profile-bg">
+  </div>
+  <div id="content">
+    <div id="profile-info">
+      <img id="profile-image" [src]="this.userInfo.avatar" (click)="presentActionSheet()">
+      <p id="profile-name">{{this.userInfo.email}}</p>
+    </div>
+    <img src="{{pathForImage(lastImage)}}" style="width: 100%" [hidden]="lastImage === null">
+  </div>
+  <ion-list>
+    <ion-item>
+      <ion-label>
+        昵称
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="this.userInfo.nickname"></ion-input>
+    </ion-item>
+    <ion-item (click)="genderOpt()">
+      性别
+      <ion-note item-end>
+        {{this.userInfo.sex}}
+      </ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        简介
+      </ion-label>
+      <ion-textarea [(ngModel)]="this.userInfo.desc">
+      </ion-textarea>
+    </ion-item>
+  </ion-list>
 </ion-content>
 
 <ion-footer>

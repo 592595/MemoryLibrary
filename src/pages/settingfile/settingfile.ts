@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, LoadingController, Loading, Platform, ActionSheetController } from 'ionic-angular';
+import { IonicPage, NavController, ToastController, LoadingController, Loading, Platform, ActionSheetController } from 'ionic-angular';
 import { Http } from "@angular/http";
 import { UserServiceProvider } from "../../providers/user-service/user-service";
 
@@ -19,16 +19,38 @@ declare var cordova: any;
 export class SettingfilePage {
   lastImage: string = null;
   loading: Loading;
-  userInfo:any={
-    nickname:'',
-    desc:'',
-    sex:''
-  };
+  userInfo:any={};
 
   constructor(public UserServiceProvider:UserServiceProvider,public navCtrl: NavController, public http: Http, private camera: Camera, private transfer: Transfer, private file: File, private filePath: FilePath, public actionSheetCtrl: ActionSheetController, public toastCtrl: ToastController, public platform: Platform, public loadingCtrl: LoadingController) {
-
+    this.updateInfo();
   }
-
+  public updateInfo(){
+    this.userInfo=this.UserServiceProvider._user;
+  }
+  genderOpt(){
+    let actionSheet = this.actionSheetCtrl.create({
+      title: '性别选择',
+      buttons: [
+        {
+          text: '男',
+          handler:()=>{
+            this.userInfo.sex = '男';
+          }
+        },
+        {
+          text: '女',
+          handler:()=>{
+            this.userInfo.sex = '男';
+          }
+        },
+        {
+          text: '取消',
+          role: 'cancel'
+        }
+        ]
+    });
+    actionSheet.present();
+  }
   public presentActionSheet() {
     let actionSheet = this.actionSheetCtrl.create({
       title: '替换头像',
@@ -58,6 +80,7 @@ export class SettingfilePage {
     // Create options for the Camera Dialog
     var options = {
       quality: 100,
+      allowEdit: true,
       sourceType: sourceType,
       saveToPhotoAlbum: false,
       correctOrientation: true
@@ -72,11 +95,13 @@ export class SettingfilePage {
             let correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
             let currentName = imagePath.substring(imagePath.lastIndexOf('/') + 1, imagePath.lastIndexOf('?'));
             this.copyFileToLocalDir(correctPath, currentName, this.createFileName());
+            this.uploadImage();
           });
       } else {
         var currentName = imagePath.substr(imagePath.lastIndexOf('/') + 1);
         var correctPath = imagePath.substr(0, imagePath.lastIndexOf('/') + 1);
         this.copyFileToLocalDir(correctPath, currentName, this.createFileName());
+        this.uploadImage();
       }
     }, (err) => {
       this.presentToast('Error while selecting image.');
@@ -104,7 +129,7 @@ export class SettingfilePage {
     let toast = this.toastCtrl.create({
       message: text,
       duration: 3000,
-      position: 'top'
+      position: 'buttom'
     });
     toast.present();
   }
@@ -120,7 +145,7 @@ export class SettingfilePage {
 
   public uploadImage() {
     // Destination URL
-    var url = "http://183.175.12.175/upload.php";
+    var url = "/api/users/resetAvatar";
 
     // File for Upload
     var targetPath = this.pathForImage(this.lastImage);
@@ -129,7 +154,7 @@ export class SettingfilePage {
     var filename = this.lastImage;
 
     var options = {
-      fileKey: "file",
+      fileKey: "avatar",
       fileName: filename,
       chunkedMode: false,
       mimeType: "multipart/form-data",
@@ -139,17 +164,19 @@ export class SettingfilePage {
     const fileTransfer: TransferObject = this.transfer.create();
 
     this.loading = this.loadingCtrl.create({
-      content: 'Uploading...',
+      content: '上传中',
     });
     this.loading.present();
 
     // Use the FileTransfer to upload the image
     fileTransfer.upload(targetPath, url, options).then(data => {
-      this.loading.dismissAll()
-      this.presentToast('Image succesful uploaded.');
+      this.getData();
+      this.lastImage = null;
+      this.loading.dismissAll();
+      this.presentToast('修改成功！');
     }, err => {
-      this.loading.dismissAll()
-      this.presentToast('Error while uploading file.');
+      this.loading.dismissAll();
+      this.presentToast('上传失败！');
     });
   }
 
@@ -159,6 +186,7 @@ export class SettingfilePage {
       if(res.json().status){
         this.UserServiceProvider.setUser(res.json().data);
         this.UserServiceProvider.status = true;
+        this.updateInfo();
       }
     })
   }
@@ -167,8 +195,12 @@ export class SettingfilePage {
     let url = '/api/users/resetProfile';
     this.http.post(url,{
       nickname:this.userInfo.nickname,
-      desc:this.userInfo.desc,
-      sex:this.userInfo.sex
+      desc: this.userInfo.desc,
+      sex: this.userInfo.sex,
+      location: {
+        city: '呼和浩特',
+        province: '内蒙古'
+      }
     }).subscribe((res)=>{
       let toast = this.toastCtrl.create({
         message: res.json().msg,
