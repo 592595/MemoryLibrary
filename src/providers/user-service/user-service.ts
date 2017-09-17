@@ -31,8 +31,10 @@ export class UserServiceProvider {
     this._user=obj;
     this.status=true;
     this.storage.set('user', this._user);
+    this.storage.set('status',true);
   }
   initUser(){
     this._user = this._init;
+    this.storage.set('status',false);
   }
 }

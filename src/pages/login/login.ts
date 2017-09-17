@@ -29,7 +29,6 @@ export class LoginPage {
     this.http.get(url).subscribe((res)=>{
       if(res.json().status){
         this.UserServiceProvider.setUser(res.json().data);
-        this.UserServiceProvider.status = true;
       }
     })
   }

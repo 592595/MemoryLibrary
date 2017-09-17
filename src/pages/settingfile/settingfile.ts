@@ -20,12 +20,14 @@ export class SettingfilePage {
   lastImage: string = null;
   loading: Loading;
   userInfo:any={};
+  userJudge:any={};
 
   constructor(public UserServiceProvider:UserServiceProvider,public navCtrl: NavController, public http: Http, private camera: Camera, private transfer: Transfer, private file: File, private filePath: FilePath, public actionSheetCtrl: ActionSheetController, public toastCtrl: ToastController, public platform: Platform, public loadingCtrl: LoadingController) {
     this.updateInfo();
   }
   public updateInfo(){
-    this.userInfo=this.UserServiceProvider._user;
+    this.userInfo = this.UserServiceProvider._user;
+    this.userJudge = this.UserServiceProvider._user;
   }
   genderOpt(){
     let actionSheet = this.actionSheetCtrl.create({
@@ -184,13 +186,20 @@ export class SettingfilePage {
     this.http.get(url).subscribe((res)=>{
       if(res.json().status){
         this.UserServiceProvider.setUser(res.json().data);
-        this.UserServiceProvider.status = true;
         this.updateInfo();
       }
     })
   }
 
   saveProfile(){
+    if(this.userJudge==this.userInfo){
+      let toast = this.toastCtrl.create({
+        message: '修改成功！',
+        duration: 2000
+      });
+      toast.present();
+      return;
+    }
     let url = '/api/users/resetProfile';
     this.http.post(url,{
       nickname:this.userInfo.nickname,

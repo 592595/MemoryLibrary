@@ -3,6 +3,9 @@ import { SettingPage } from '../setting/setting';
 import { ExplorePage } from '../explore/explore';
 import { HomePage } from '../home/home';
 import { NavController,NavParams } from 'ionic-angular';
+import {SlidesPage} from "../slides/slides";
+import { Storage } from "@ionic/storage";
+import { UserServiceProvider } from "../../providers/user-service/user-service";
 @Component({
   templateUrl: 'tabs.html'
 })
@@ -11,7 +14,7 @@ export class TabsPage {
   tabRoots: Object[];
 
   data:any;
-  constructor(public navCtrl: NavController,public navParams: NavParams) {
+  constructor(public navCtrl: NavController,public navParams: NavParams, public storage: Storage, public UserServiceProvider:UserServiceProvider) {
     //console.log(this.navParams.data)//打印的是传过来的所有数据
     //this.data = navParams.get('item1')
     //console.log(this.data);
@@ -32,6 +35,28 @@ export class TabsPage {
         tabIcon: 'document'
       }
     ];
+    this.slideJudge();
+  }
+
+  slideJudge(){
+    this.storage.length().then((val)=>{
+      if(!val){
+        this.navCtrl.push(SlidesPage);
+      }
+      else{
+        this.statusJudge();
+      }
+    })
+  }
+
+  statusJudge(){
+    this.storage.get('status').then((val)=>{
+      if(val){
+        this.storage.get('user').then((val)=>{
+          this.UserServiceProvider._user=val;
+        })
+      }
+    })
   }
 
   ionViewDidLoad(navParams: NavParams) {

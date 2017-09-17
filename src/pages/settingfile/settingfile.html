@@ -32,7 +32,9 @@
       <ion-input type="text" [(ngModel)]="this.userInfo.nickname"></ion-input>
     </ion-item>
     <ion-item (click)="genderOpt()">
-      性别
+      <ion-label>
+        性别
+      </ion-label>
       <ion-note item-end>
         {{this.userInfo.sex}}
       </ion-note>

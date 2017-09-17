@@ -42,7 +42,7 @@ export class ExplorePage {
   }
 
   getNear(){
-    let url = '/api/users/nearBy';
+    let url = '/api/museum/nearBy';
     this.http.get(url).subscribe((res)=>{
       if(res.json().status){
         if(res.json.length){
@@ -88,18 +88,6 @@ export class ExplorePage {
     })
   }
 
-  ionViewDidLoad() {
-    if(this.selectedLoc){
-      if(this.selectedLoc!=this.UserServiceProvider._user.location.province){
-        this.getNearLoc();
-      }
-      else{
-        this.getNear();
-      }
-    }else{
-      this.getNear();
-    }
-  }
   ionViewDidEnter(){
     if(this.selectedLoc){
       if(this.selectedLoc!=this.UserServiceProvider._user.location.province){
