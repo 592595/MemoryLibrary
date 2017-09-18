@@ -13,6 +13,7 @@ import { PublishServiceProvider } from "../../providers/publish-service/publish-
 @IonicPage()
 @Component({
   selector: 'page-publish',
+
   templateUrl: 'publish.html',
 })
 export class PublishPage {
