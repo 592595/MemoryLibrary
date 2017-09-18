@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-
+import { ActionSheetController, AlertController, IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { Http } from "@angular/http";
+import { PublishPage } from "../publish/publish";
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -42,5 +44,12 @@ export class HomePage {
     }
   ];
 
+  constructor(public navCtrl: NavController,public navParams: NavParams, public http:Http){
+
+  }
+
+  navToPublish(){
+    this.navCtrl.push(PublishPage);
+  }
 
 }
