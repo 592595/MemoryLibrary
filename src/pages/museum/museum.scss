@@ -1,3 +1,22 @@
 page-museum {
-
+  ion-card-header{
+    border-bottom: solid #dddddd 1px;
+  }
+  ion-card-content{
+    .head{
+      margin: 2rem 0;
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+    .title{
+      margin-top: 2rem;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    .content{
+      font-size: 1.5rem;
+      line-height: 2rem;
+      text-indent:2em;
+    }
+  }
 }

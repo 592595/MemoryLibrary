@@ -10,10 +10,10 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from "../pages/login/login";
 import { RegisterPage } from '../pages/register/register';
 import { PasswordPage } from '../pages/password/password';
-import { SlidesPage} from "../pages/slides/slides";
-import { ForgetPage} from "../pages/forget/forget";
-import { PublishPage} from "../pages/publish/publish";
-import {MuseumPage} from "../pages/museum/museum";
+import { SlidesPage } from "../pages/slides/slides";
+import { ForgetPage } from "../pages/forget/forget";
+import { PublishPage } from "../pages/publish/publish";
+import { MuseumPage } from "../pages/museum/museum";
 import { ProfilePage } from "../pages/profile/profile";
 import { SettingfilePage } from "../pages/settingfile/settingfile";
 
