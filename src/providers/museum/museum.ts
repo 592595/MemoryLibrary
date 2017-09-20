@@ -15,7 +15,7 @@ export class MuseumProvider {
   public isEmpty:boolean=false;
 
   constructor(public http: Http) {
-    console.log('Hello MuseumProvider Provider');
+
   }
 
   getNear(){
