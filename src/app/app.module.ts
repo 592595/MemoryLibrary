@@ -28,6 +28,7 @@ import { File } from '@ionic-native/file';
 import { Transfer } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
+import { MuseumProvider } from '../providers/museum/museum';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { Camera } from '@ionic-native/camera';
     FilePath,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserServiceProvider,
-    PublishServiceProvider
+    PublishServiceProvider,
+    MuseumProvider
   ]
 })
 export class AppModule {}

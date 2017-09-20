@@ -20,16 +20,18 @@
 
 <ion-content class="card-background-page">
 
-  <ion-card>
+  <ion-card *ngFor="let m of mList" tappable (click)="pushDetail(m._id)">
+    <img src="assets/img/card-saopaolo.png"/>
+    <div class="card-title">{{m.name}}</div>
+    <div class="card-subtitle">地址：{{m.location.city}}</div>
+  </ion-card>
+
+  <ion-card *ngIf="isEmpty">
     <img src="assets/img/card-saopaolo.png"/>
     <div class="card-title">内蒙古私人博物馆</div>
     <div class="card-subtitle">地址：内蒙古大学</div>
   </ion-card>
 
-  <ion-card>
-    <img src="assets/img/card-madison.png"/>
-    <div class="card-title">内蒙古私人博物馆</div>
-    <div class="card-subtitle">地址：内蒙古大学</div>
-  </ion-card>
+
 
 </ion-content>

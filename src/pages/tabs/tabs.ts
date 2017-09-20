@@ -6,6 +6,7 @@ import { NavController,NavParams } from 'ionic-angular';
 import {SlidesPage} from "../slides/slides";
 import { Storage } from "@ionic/storage";
 import { UserServiceProvider } from "../../providers/user-service/user-service";
+import { MuseumProvider } from "../../providers/museum/museum";
 @Component({
   templateUrl: 'tabs.html'
 })
@@ -14,7 +15,7 @@ export class TabsPage {
   tabRoots: Object[];
 
   data:any;
-  constructor(public navCtrl: NavController,public navParams: NavParams, public storage: Storage, public UserServiceProvider:UserServiceProvider) {
+  constructor(public navCtrl: NavController,public navParams: NavParams, public storage: Storage, public UserServiceProvider:UserServiceProvider, public MuseumProvider: MuseumProvider) {
     //console.log(this.navParams.data)//打印的是传过来的所有数据
     //this.data = navParams.get('item1')
     //console.log(this.data);
@@ -35,6 +36,7 @@ export class TabsPage {
         tabIcon: 'document'
       }
     ];
+    this.MuseumProvider.getNear();
     this.slideJudge();
   }
 

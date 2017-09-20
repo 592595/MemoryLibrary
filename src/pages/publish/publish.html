@@ -6,7 +6,14 @@
 -->
 <ion-header no-border>
   <ion-navbar>
-    <ion-title>发布</ion-title>
+      <ion-segment [(ngModel)]="pet" color="dark">
+        <ion-segment-button value="puppies">
+          物件
+        </ion-segment-button>
+        <ion-segment-button value="kittens">
+          回忆
+        </ion-segment-button>
+      </ion-segment>
     <ion-buttons end>
       <button ion-button icon-only color="dark" (click)="pub()">
         <ion-icon name="paper-plane"></ion-icon>
@@ -23,17 +30,31 @@
     <div [hidden]="ishide" (click)="presentActionSheet();" class="imgs"
          [style.background]="'url(assets/img/addimg.png)'"></div>
   </section>
-  <ion-list style="margin-top: 5rem; margin-bottom: -1rem">
-    <ion-item>
-      <ion-label fixed>博物馆</ion-label>
-      <ion-input type="text" [(ngModel)]="mid"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label fixed>展位</ion-label>
-      <ion-input type="text" [(ngModel)]="display"></ion-input>
-    </ion-item>
-  </ion-list>
-  <ion-buttons >
+  <div [ngSwitch]="pet">
+    <ion-list *ngSwitchCase="'puppies'">
+      <ion-list style="margin-top: 5rem; margin-bottom: -1rem">
+        <ion-item>
+          <ion-label>博物馆</ion-label>
+          <ion-select [(ngModel)]="mid" submitText="确认" cancelText="取消">
+            <ion-option value="m._id" *ngFor="let m of mus">{{m.name}}</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item [hidden]="!published">
+          <ion-label fixed>展位</ion-label>
+          <ion-input type="text" [(ngModel)]="display"></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-list>
+    <ion-list *ngSwitchCase="'kittens'">
+      <ion-list style="margin-top: 5rem; margin-bottom: -1rem">
+        <ion-item>
+          <ion-label fixed>位置</ion-label>
+          <ion-input type="text" [(ngModel)]="loc"></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-list>
+  </div>
+  <ion-buttons style="margin-top: -35px">
     <button ion-button icon-only color="dark" clear (click)="setPrivate()" [hidden]="!published">
       <ion-icon name="ios-eye-outline"></ion-icon>
     </button>
@@ -41,5 +62,4 @@
       <ion-icon name="ios-eye-off-outline"></ion-icon>
     </button>
   </ion-buttons>
-
 </ion-content>

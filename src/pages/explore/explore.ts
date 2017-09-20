@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
 import {Http} from "@angular/http";
 import { UserServiceProvider} from "../../providers/user-service/user-service";
+import { MuseumProvider } from "../../providers/museum/museum";
+import { MuseumPage } from "../museum/museum";
 
 /**
  * Generated class for the ExplorePage page.
@@ -21,12 +23,12 @@ export class ExplorePage {
   isEmpty:boolean;
   selectedLoc:'';
 
-
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public http: Http,
               public toastCtrl: ToastController,
-              public UserServiceProvider:UserServiceProvider) {
+              public UserServiceProvider:UserServiceProvider,
+              public MuseumProvider: MuseumProvider) {
     this.isEmpty = false;
     if(this.selectedLoc){
       if(this.selectedLoc!=this.UserServiceProvider._user.location.province){
@@ -41,12 +43,19 @@ export class ExplorePage {
 
   }
 
+  pushDetail(_id){
+    this.navCtrl.push(MuseumPage,{
+      id:_id
+    })
+  }
+
   getNear(){
     let url = '/api/museum/nearBy';
     this.http.get(url).subscribe((res)=>{
       if(res.json().status){
-        if(res.json.length){
-          this.mList = res.json().mus;
+        if(res.json().data.length){
+          this.mList = res.json().data;
+          this.MuseumProvider.mList= res.json().data;
         }
         else{
           this.isEmpty = true;

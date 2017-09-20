@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActionSheetController, AlertController, IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { Http,Headers } from "@angular/http";
-import { PublishServiceProvider } from "../../providers/publish-service/publish-service";
+import { MuseumProvider } from "../../providers/museum/museum";
 
 /**
  * Generated class for the PublishPage page.
@@ -23,9 +23,12 @@ export class PublishPage {
   display:'';
   mid:'';
   ishide:boolean;
+  pet: string = "puppies";
+  loc:string;
 
   postimg = [];
   items = [];
+  mus:any;
 
   constructor( public navCtrl: NavController,
               public navParams: NavParams,
@@ -33,10 +36,11 @@ export class PublishPage {
               public toastCtrl: ToastController,
               public alertCtrl: AlertController,
               public actionSheetCtrl: ActionSheetController,
-              public PublishServiceProvider:PublishServiceProvider ) {
+              public MuseumProvider:MuseumProvider ) {
 
     this.published = true;
     this.ishide = false;
+    this.mus = this.MuseumProvider.mList;
   }
 
 
@@ -58,33 +62,57 @@ export class PublishPage {
       toast.present();
       return;
     }
-    if (!(this.des&&this.display&&this.mid)) {
-      let toast = this.toastCtrl.create({
-        message: "兄弟，信息不完全哟~~~仔细检查一下",
-        duration: 2000
-      });
-      toast.present();
-      return;
-    }
-    this.http.post(url,{
-      published: this.published,
-      photo: JSON.stringify(this.postimg),
-      des: this.des,
-      time: new Date(),
-      display: this.display,
-      mid: this.mid
-    },{
-      headers: headers
-    }).subscribe((res)=>{
-      let toast = this.toastCtrl.create({
-        message: res.json().msg,
-        duration: 2000
-      });
-      toast.present();
-      if (res.json().status) {
-        this.navCtrl.pop();
+    if(this.pet=='puppies'){
+      if (!(this.des&&this.display&&this.mid)) {
+        let toast = this.toastCtrl.create({
+          message: "兄弟，信息不完全哟~~~仔细检查一下",
+          duration: 2000
+        });
+        toast.present();
+        return;
       }
-    })
+      this.http.post(url,{
+        type: '物件',
+        published: this.published,
+        photo: JSON.stringify(this.postimg),
+        des: this.des,
+        time: new Date(),
+        display: this.display,
+        mid: this.mid
+      },{
+        headers: headers
+      }).subscribe((res)=>{
+        let toast = this.toastCtrl.create({
+          message: res.json().msg,
+          duration: 2000
+        });
+        toast.present();
+        if (res.json().status) {
+          this.navCtrl.pop();
+        }
+      });
+    }
+    else{
+      this.http.post(url,{
+        type: '回忆',
+        published: this.published,
+        photo: JSON.stringify(this.postimg),
+        des: this.des,
+        time: new Date(),
+        loc: this.loc
+      },{
+        headers: headers
+      }).subscribe((res)=>{
+        let toast = this.toastCtrl.create({
+          message: res.json().msg,
+          duration: 2000
+        });
+        toast.present();
+        if (res.json().status) {
+          this.navCtrl.pop();
+        }
+      });
+    }
   }
 
   ionViewDidLoad() {

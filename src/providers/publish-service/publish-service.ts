@@ -11,16 +11,20 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class PublishServiceProvider {
 
-  mid:'';
-  display:'';
+  public mus:any;
 
   constructor(public http: Http) {
-    this.initData();
+    this.getNear();
   }
-
-  initData(){
-    this.mid='';
-    this.display='';
+  getNear(){
+    let url = '/api/museum/nearBy';
+    this.http.get(url).subscribe((res)=>{
+      if(res.json().status){
+        if(res.json.length){
+          this.mus = res.json().mus;
+        }
+      }
+    })
   }
 
 }

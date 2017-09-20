@@ -11,6 +11,7 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class UserServiceProvider {
+
   public status:boolean;
   public _user: any;
   public _init:any ={
