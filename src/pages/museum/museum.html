@@ -16,7 +16,7 @@
 <ion-content>
   <ion-card>
 
-    <img src="assets/img/card-saopaolo.png"/>
+    <img [src]="data.image"/>
 
     <ion-card-header>
 
@@ -29,13 +29,13 @@
       <ion-list>
         <button ion-button clear small color="dark" icon-start>
           <ion-icon name='pin'></ion-icon>
-          内蒙古赤峰市松山区芳草路236号
+          {{data.location.city}}
         </button>
       </ion-list>
       <ion-list>
         <button ion-button clear small color="dark" icon-start>
           <ion-icon name='compass'></ion-icon>
-          内蒙古大学博物馆
+          {{data.name}}
         </button>
       </ion-list>
 

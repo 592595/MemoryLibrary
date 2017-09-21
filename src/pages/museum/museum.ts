@@ -16,7 +16,19 @@ import { Http } from "@angular/http";
 })
 export class MuseumPage {
 
-  data:any;
+  data={
+    _id:'',
+    name:'',
+    desc:'',
+    startTime:'',
+    image:'',
+    '__v':'',
+    admin:{},
+    location:{
+      city:'',
+      province:''
+    }
+  };
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http:Http, public toastCtrl:ToastController) {
     this.getData(navParams.get('id'));
@@ -27,10 +39,11 @@ export class MuseumPage {
   }
 
   getData(_id){
-    let url = '/api/museum/detail';
-    this.http.get(url).subscribe((val)=>{
-      if(val.json().status){
-        this.data=val.json().data;
+    let url = '/api/museum/detail?id='+_id;
+    this.http.get(url).subscribe((res)=>{
+      if(res.json().status){
+        console.log(res.json());
+        this.data = res.json().data;
       }
       else{
         let toast = this.toastCtrl.create({
