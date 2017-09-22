@@ -24,6 +24,15 @@ export class UserServiceProvider {
     }
   };
 
+  public checkLogin(): boolean{
+    if(this._user._id){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
   constructor(public http: Http, public storage:Storage) {
     this._user = this._init;
     this.status = false;

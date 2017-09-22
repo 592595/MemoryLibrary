@@ -23,13 +23,13 @@
       <ion-list>
         <button ion-button clear small color="dark" icon-start>
           <ion-icon name='bulb'></ion-icon>
-          7:00 a.m. - 4:30 p.m.
+          {{data.startTime}}
         </button>
       </ion-list>
       <ion-list>
         <button ion-button clear small color="dark" icon-start>
           <ion-icon name='pin'></ion-icon>
-          {{data.location.city}}
+          {{data.location.province}} {{data.location.city}}
         </button>
       </ion-list>
       <ion-list>
@@ -79,48 +79,13 @@
     </ion-card-content>
 
 
-    <!--<ion-list>-->
-      <!--<p>-->
-        <!--博物馆内藏品包括情书、订婚戒指、按摩油、小轮摩托车以及恋情过后留下的空酒瓶等。-->
-        <!--每件展品旁边都有捐赠者写下的说明文字，解释此件展品的来源和意义。-->
-      <!--</p>-->
-      <!--<ion-item>-->
-        <!--<ion-thumbnail item-start>-->
-          <!--<img src="assets/img/1.1.jpg">-->
-        <!--</ion-thumbnail>-->
-        <!--<h2>My Neighbor Totoro</h2>-->
-        <!--<p>Hayao Miyazaki • 1988</p>-->
-        <!--<button ion-button clear item-end>View</button>-->
-      <!--</ion-item>-->
-
-      <!--<ion-item>-->
-        <!--<ion-thumbnail item-start>-->
-          <!--<img src="assets/img/1.2.jpg">-->
-        <!--</ion-thumbnail>-->
-        <!--<h2>Raiders of the Lost Ark</h2>-->
-        <!--<p>Steven Spielberg • 1981</p>-->
-        <!--<button ion-button clear item-end>View</button>-->
-      <!--</ion-item>-->
-
-      <!--<ion-item>-->
-        <!--<ion-thumbnail item-start>-->
-          <!--<img src="assets/img/1.1.jpg">-->
-        <!--</ion-thumbnail>-->
-        <!--<h2>My Neighbor Totoro</h2>-->
-        <!--<p>Hayao Miyazaki • 1988</p>-->
-        <!--<button ion-button clear item-end>View</button>-->
-      <!--</ion-item>-->
-
-      <!--<ion-item>-->
-        <!--<ion-thumbnail item-start>-->
-          <!--<img src="assets/img/1.2.jpg">-->
-        <!--</ion-thumbnail>-->
-        <!--<h2>Raiders of the Lost Ark</h2>-->
-        <!--<p>Steven Spielberg • 1981</p>-->
-        <!--<button ion-button clear item-end>View</button>-->
-      <!--</ion-item>-->
-    <!--</ion-list>-->
-
   </ion-card>
 
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons>
+
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

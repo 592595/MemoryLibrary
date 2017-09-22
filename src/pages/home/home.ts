@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Http } from "@angular/http";
 import { PublishPage } from "../publish/publish";
+import { UserServiceProvider } from "../../providers/user-service/user-service";
+import { LoginPage } from "../login/login";
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -44,12 +46,18 @@ export class HomePage {
     }
   ];
 
-  constructor(public navCtrl: NavController, public http:Http){
+  constructor(public navCtrl: NavController, public http:Http, public UserServiceProvider:UserServiceProvider){
 
   }
 
   navToPublish(){
-    this.navCtrl.push(PublishPage);
+
+    if(this.UserServiceProvider.checkLogin()){
+      this.navCtrl.push(PublishPage);
+    }
+    else{
+      this.navCtrl.push(LoginPage);
+    }
   }
 
 }

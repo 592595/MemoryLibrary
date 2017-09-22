@@ -23,7 +23,9 @@ export class MuseumPage {
     startTime:'',
     image:'',
     '__v':'',
-    admin:{},
+    admin:{
+      email:''
+    },
     location:{
       city:'',
       province:''

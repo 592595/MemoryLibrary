@@ -40,7 +40,7 @@ export class SettingPage {
     this.user.location.city = this.UserServiceProvider._user.location.city;
   }
   checkLogin(page){
-    if(this.UserServiceProvider._user._id){
+    if(this.UserServiceProvider.checkLogin()){
       this.navCtrl.push(page);
     }
     else{
