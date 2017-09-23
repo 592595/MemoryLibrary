@@ -23,6 +23,7 @@ import { HttpModule } from "@angular/http";
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { PublishServiceProvider } from '../providers/publish-service/publish-service';
+import { ArtListPage } from "../pages/art-list/art-list";
 
 import { File } from '@ionic-native/file';
 import { Transfer } from '@ionic-native/transfer';
@@ -45,7 +46,8 @@ import { MuseumProvider } from '../providers/museum/museum';
     PublishPage,
     MuseumPage,
     ProfilePage,
-    SettingfilePage
+    SettingfilePage,
+    ArtListPage
   ],
   imports: [
     IonicStorageModule.forRoot(),
@@ -70,7 +72,8 @@ import { MuseumProvider } from '../providers/museum/museum';
     PublishPage,
     MuseumPage,
     ProfilePage,
-    SettingfilePage
+    SettingfilePage,
+    ArtListPage
   ],
   providers: [
     StatusBar,
