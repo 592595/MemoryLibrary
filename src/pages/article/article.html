@@ -22,7 +22,6 @@
           <p class="time"><i class="fa fa-clock-o" aria-hidden="true"></i>2017.09.23</p>
         </div>
       </section>
-
       <p>
         八音盒是我的爱情遗物，它告诉我们，爱情只记得美好的时候就够了，那个曾经满足过你幻想的人，
         也有可能让你失望。但在一段爱情中我们能得到的财富，就是让自己变成更好的自己，能经的起失去。
@@ -32,13 +31,26 @@
         <!--<div *ngFor="let item of data.img; let i=index" (click)="pswpElementInit(i);" class="imgs" [style.background]="'url('+item.src+')'"></div>-->
       </section>
       <section class="mark">
-        <p><i class="fa fa-eye" ></i>浏览</p>
-        <p class="cen"><i class="fa fa-commenting-o" ></i> 评论</p>
-        <p><i class="fa fa-thumbs-o-up"></i> 赞</p>
+        <p> <ion-icon name="eye"></ion-icon>
+          999+
+        </p>
+        <p class="cen"><ion-icon name="star-outline"></ion-icon>
+          收藏
+        </p>
+        <p><ion-icon name="heart-outline"></ion-icon>
+          赞
+        </p>
       </section>
-
-    </section>
-
+  </section>
+  <section class="wrap">
+    <ion-list>
+      <ion-list-header>
+        <ion-icon name="pin"></ion-icon>
+        所在位置：内蒙古大学博物馆64号展位
+      </ion-list-header>
+    </ion-list>
+    <!--<comments *ngFor="let item of items" [data]="item" [type]="type"></comments>-->
+  </section>
 
 </ion-content>
 
