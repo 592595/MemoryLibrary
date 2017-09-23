@@ -5,12 +5,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 //import { TabsPage } from "../pages/tabs/tabs";
 //import { PublishPage } from "../pages/publish/publish";
-import { ArtListPage } from "../pages/art-list/art-list";
+import { ArticlePage } from "../pages/article/article";
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = ArtListPage;
+  rootPage:any = ArticlePage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

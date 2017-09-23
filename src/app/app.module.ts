@@ -24,6 +24,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { PublishServiceProvider } from '../providers/publish-service/publish-service';
 import { ArtListPage } from "../pages/art-list/art-list";
+import { ArticlePage } from "../pages/article/article";
 
 import { File } from '@ionic-native/file';
 import { Transfer } from '@ionic-native/transfer';
@@ -47,7 +48,8 @@ import { MuseumProvider } from '../providers/museum/museum';
     MuseumPage,
     ProfilePage,
     SettingfilePage,
-    ArtListPage
+    ArtListPage,
+    ArticlePage
   ],
   imports: [
     IonicStorageModule.forRoot(),
@@ -73,7 +75,8 @@ import { MuseumProvider } from '../providers/museum/museum';
     MuseumPage,
     ProfilePage,
     SettingfilePage,
-    ArtListPage
+    ArtListPage,
+    ArticlePage
   ],
   providers: [
     StatusBar,
