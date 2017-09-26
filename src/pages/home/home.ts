@@ -14,35 +14,23 @@ export class HomePage {
     {
       title: "Welcome to the Docs!",
       subTitle:" 记忆永不凋零",
-      image: "assets/img/0.jpg",
+      image: "assets/img/home-banner1.jpg",
       description: "<b>那些永不凋零的记忆</b>",
       text:"Memories that never fade",
     },
     {
-      title: "What is Ionic?",
-      image: "assets/img/0.jpg",
+      title: "The love world is big!",
+      subTitle:"爱的世界很大也很小",
+      image: "assets/img/home-banner2.jpg",
+      description: "<b>陪伴才是最长情的告白</b>",
+      text:"To the world you may",
     },
     {
-      title: "What is Ionic Cloud?",
-      image: "assets/img/0.jpg",
-    }
-  ];
-  slide = [
-    {
-      image: "assets/img/1.jpg",
-      description: "<b>那些永不凋零的记忆</b>",
-    },
-    {
-      image: "assets/img/2.jpg",
-      description: "<b>那些永不凋零的记忆</b>",
-    },
-    {
-      image: "assets/img/3.jpg",
-      description: "<b>那些永不凋零的记忆</b>",
-    },
-    {
-      image: "assets/img/4.jpg",
-      description: "<b>那些永不凋零的记忆</b>",
+      title: "\tIf You Forget Me!",
+      subTitle:" 如果你忘了我",
+      image: "assets/img/home-banner3.jpg",
+      description: "<b>爱是无形燃烧的火焰</b>",
+      text:" Love is a fire which burns unseen.",
     }
   ];
 

@@ -16,6 +16,7 @@ import { PublishPage } from "../pages/publish/publish";
 import { MuseumPage } from "../pages/museum/museum";
 import { ProfilePage } from "../pages/profile/profile";
 import { SettingfilePage } from "../pages/settingfile/settingfile";
+import { PoeticPage } from "../pages/poetic/poetic";
 
 import { UserServiceProvider } from "../providers/user-service/user-service";
 import { IonicStorageModule } from "@ionic/storage";
@@ -49,7 +50,8 @@ import { MuseumProvider } from '../providers/museum/museum';
     ProfilePage,
     SettingfilePage,
     ArtListPage,
-    ArticlePage
+    ArticlePage,
+    PoeticPage
   ],
   imports: [
     IonicStorageModule.forRoot(),
@@ -76,7 +78,8 @@ import { MuseumProvider } from '../providers/museum/museum';
     ProfilePage,
     SettingfilePage,
     ArtListPage,
-    ArticlePage
+    ArticlePage,
+    PoeticPage
   ],
   providers: [
     StatusBar,
