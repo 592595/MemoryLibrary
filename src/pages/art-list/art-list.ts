@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ArticlePage } from "../article/article";
 
 /**
  * Generated class for the ArtListPage page.
@@ -14,12 +15,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'art-list.html',
 })
 export class ArtListPage {
+  public list:[{}];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.list=navParams.get('list');
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ArtListPage');
+  }
+
+  navToArticle(){
+    this.navCtrl.push(ArticlePage);
   }
 
 }

@@ -49,6 +49,7 @@ export class ExplorePage {
     })
   }
 
+
   getNear(){
     let url = '/api/museum/nearBy';
     this.http.get(url).subscribe((res)=>{
